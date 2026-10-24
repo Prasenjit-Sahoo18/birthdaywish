@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background-color: #FFF9F4;
+    color: #3A1422;
+    overflow-x: hidden;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #FFF9F4;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #D989A6;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #722F46;
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 15px rgba(214, 183, 122, 0.4), 0 0 30px rgba(217, 137, 166, 0.2);
+  }
+
+  .text-glow-gold {
+    text-shadow: 0 0 20px rgba(214, 183, 122, 0.5);
+  }
+
+  .gold-gradient-text {
+    background: linear-gradient(135deg, #722F46 0%, #B85D7F 50%, #D6B77A 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .luxury-gold-text {
+    background: linear-gradient(135deg, #D6B77A 0%, #F5E6CC 50%, #C4A263 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(247, 220, 229, 0.6);
+  }
+
+  .glass-card-dark {
+    background: rgba(58, 20, 34, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(214, 183, 122, 0.3);
+  }
+
+  .film-grain {
+    position: relative;
+  }
+
+  .film-grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image: radial-gradient(rgba(114, 47, 70, 0.05) 1px, transparent 0);
+    background-size: 4px 4px;
+    opacity: 0.6;
+    border-radius: inherit;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
