@@ -9,7 +9,6 @@ import { Letter } from './components/Letter';
 import { OpenWhenLetters } from './components/OpenWhenLetters';
 import { HappinessJar } from './components/HappinessJar';
 import { BirthdayAura } from './components/BirthdayAura';
-import { BirthdayAlmanac } from './components/BirthdayAlmanac';
 import { FortuneCookie } from './components/FortuneCookie';
 import { Constellation } from './components/Constellation';
 import { WishGenerator } from './components/WishGenerator';
@@ -54,13 +53,10 @@ export const App: React.FC = () => {
         {/* 5. UNIQUE: The Jar of Sweet Thoughts with Origami Stars */}
         <HappinessJar />
 
-        {/* 6. UNIQUE: Neha's Radiant Aura & Energy Spectrum (Replaces lengthy reasons) */}
+        {/* 6. UNIQUE: Neha's Radiant Aura & Energy Spectrum */}
         <BirthdayAura />
 
-        {/* 7. UNIQUE: The October 30 Editorial Almanac */}
-        <BirthdayAlmanac />
-
-        {/* 8. UNIQUE: The Golden Birthday Fortune Cracker */}
+        {/* 7. UNIQUE: The Golden Birthday Fortune Cracker */}
         <FortuneCookie />
 
         {/* 9. UNIQUE: Neha's Constellation of Grace Celestial Map */}
