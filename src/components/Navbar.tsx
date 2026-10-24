@@ -29,9 +29,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onReplayIntro }) => {
   const navLinks = [
     { name: 'Gallery', href: '#gallery-section' },
     { name: 'Letter', href: '#letter-section' },
+    { name: 'Open When', href: '#open-when-section' },
+    { name: 'Wish Jar', href: '#jar-section' },
     { name: 'Reasons', href: '#reasons-section' },
+    { name: 'Constellation', href: '#constellation-section' },
     { name: 'Wishes', href: '#wishes-section' },
-    { name: 'Birthday Cake', href: '#cake-section' },
+    { name: 'Cake', href: '#cake-section' },
   ];
 
   const handleLinkClick = (href: string) => {
