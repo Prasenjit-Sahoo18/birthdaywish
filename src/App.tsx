@@ -8,7 +8,9 @@ import { PhotoGallery } from './components/PhotoGallery';
 import { Letter } from './components/Letter';
 import { OpenWhenLetters } from './components/OpenWhenLetters';
 import { HappinessJar } from './components/HappinessJar';
-import { Reasons } from './components/Reasons';
+import { BirthdayAura } from './components/BirthdayAura';
+import { BirthdayAlmanac } from './components/BirthdayAlmanac';
+import { FortuneCookie } from './components/FortuneCookie';
 import { Constellation } from './components/Constellation';
 import { WishGenerator } from './components/WishGenerator';
 import { BirthdayMagic } from './components/BirthdayMagic';
@@ -43,7 +45,7 @@ export const App: React.FC = () => {
         {/* 2. Interactive Photo Gallery with 3D Flip Notes & Lightbox */}
         <PhotoGallery />
 
-        {/* 3. A Heartfelt Letter with Wax Unfold & Typewriter Reveal */}
+        {/* 3. A Heartfelt Letter with Wax Unfold & Sequential Reveal */}
         <Letter />
 
         {/* 4. UNIQUE: "Open When..." Sealed Luxury Envelopes */}
@@ -52,22 +54,28 @@ export const App: React.FC = () => {
         {/* 5. UNIQUE: The Jar of Sweet Thoughts with Origami Stars */}
         <HappinessJar />
 
-        {/* 6. 100 Little Reasons You Are Special Affirmations */}
-        <Reasons />
+        {/* 6. UNIQUE: Neha's Radiant Aura & Energy Spectrum (Replaces lengthy reasons) */}
+        <BirthdayAura />
 
-        {/* 7. UNIQUE: Neha's Constellation of Grace Celestial Map */}
+        {/* 7. UNIQUE: The October 30 Editorial Almanac */}
+        <BirthdayAlmanac />
+
+        {/* 8. UNIQUE: The Golden Birthday Fortune Cracker */}
+        <FortuneCookie />
+
+        {/* 9. UNIQUE: Neha's Constellation of Grace Celestial Map */}
         <Constellation />
 
-        {/* 8. Surprise Wish Generator */}
+        {/* 10. Surprise Wish Generator */}
         <WishGenerator />
 
-        {/* 9. Mini "Birthday Magic" Interactive Canvas */}
+        {/* 11. Mini "Birthday Magic" Interactive Canvas */}
         <BirthdayMagic />
 
-        {/* 10. Birthday Cake with Blowout Candles & Blessing */}
+        {/* 12. Birthday Cake with Blowout Candles & Blessing */}
         <BirthdayCake />
 
-        {/* 11. Final Screen with Collage & Replay */}
+        {/* 13. Final Screen with Collage & Replay */}
         <Finale onReplayIntro={() => setIntroOpened(false)} />
       </main>
 

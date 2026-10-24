@@ -31,9 +31,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onReplayIntro }) => {
     { name: 'Letter', href: '#letter-section' },
     { name: 'Open When', href: '#open-when-section' },
     { name: 'Wish Jar', href: '#jar-section' },
-    { name: 'Reasons', href: '#reasons-section' },
+    { name: 'Aura', href: '#aura-section' },
+    { name: 'Almanac', href: '#almanac-section' },
+    { name: 'Fortune', href: '#fortune-section' },
     { name: 'Constellation', href: '#constellation-section' },
-    { name: 'Wishes', href: '#wishes-section' },
     { name: 'Cake', href: '#cake-section' },
   ];
 
