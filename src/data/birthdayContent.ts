@@ -40,9 +40,8 @@ export interface BirthdayContent {
   music: {
     title: string;
     artist: string;
-    localAudioPath: string;
-    spotifyTrackUrl: string;
-    spotifyEmbedUrl: string;
+    audioSrc: string;
+    audioSrcM4a: string;
   };
 }
 
@@ -366,8 +365,7 @@ export const BIRTHDAY_CONTENT: BirthdayContent = {
   music: {
     title: "Espresso",
     artist: "Sabrina Carpenter",
-    localAudioPath: "/audio/espresso.mp3",
-    spotifyTrackUrl: "https://open.spotify.com/track/2HRqTpkrUmQI7z6r640Hvh",
-    spotifyEmbedUrl: "https://open.spotify.com/embed/track/2HRqTpkrUmQI7z6r640Hvh?utm_source=generator&theme=0"
+    audioSrc: "/audio/espresso.mp3",
+    audioSrcM4a: "/audio/espresso.m4a"
   }
 };

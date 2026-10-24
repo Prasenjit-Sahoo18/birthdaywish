@@ -56,7 +56,7 @@ export const App: React.FC = () => {
       </main>
 
       {/* Dedicated Floating Music Player (Espresso - Sabrina Carpenter) */}
-      <MusicPlayer />
+      <MusicPlayer autoPlayTrigger={introOpened} />
     </div>
   );
 };
