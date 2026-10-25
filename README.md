@@ -1,4 +1,4 @@
-# For Neha, With All the Love in the World ♡
+# birthdaywish — For Neha, With All the Love in the World ♡
 
 A premium, handcrafted, highly interactive birthday celebration website created especially for **Neha** (Birthday: **October 30**).
 
