@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { FloatingPetals } from './components/FloatingPetals';
 import { CursorStardust } from './components/CursorStardust';
 import { IntroEnvelope } from './components/IntroEnvelope';
@@ -15,10 +15,11 @@ import { WishGenerator } from './components/WishGenerator';
 import { BirthdayMagic } from './components/BirthdayMagic';
 import { BirthdayCake } from './components/BirthdayCake';
 import { Finale } from './components/Finale';
-import { MusicPlayer } from './components/MusicPlayer';
+import { MusicPlayer, MusicPlayerHandle } from './components/MusicPlayer';
 
 export const App: React.FC = () => {
   const [introOpened, setIntroOpened] = useState(false);
+  const musicPlayerRef = useRef<MusicPlayerHandle>(null);
 
   return (
     <div className="min-h-screen bg-[#FFF9F4] text-burgundy-900 relative selection:bg-blush-300 selection:text-burgundy-950 font-sans">
@@ -27,7 +28,10 @@ export const App: React.FC = () => {
 
       {/* Cinematic Intro Welcome Screen Overlay */}
       {!introOpened && (
-        <IntroEnvelope onOpen={() => setIntroOpened(true)} />
+        <IntroEnvelope
+          onOpen={() => setIntroOpened(true)}
+          onStartMusic={() => musicPlayerRef.current?.play()}
+        />
       )}
 
       {/* Floating Organic Rose Petals Background */}
@@ -76,7 +80,7 @@ export const App: React.FC = () => {
       </main>
 
       {/* Dedicated Floating Music Player (Espresso - Sabrina Carpenter) */}
-      <MusicPlayer autoPlayTrigger={introOpened} />
+      <MusicPlayer ref={musicPlayerRef} autoPlayTrigger={introOpened} />
     </div>
   );
 };

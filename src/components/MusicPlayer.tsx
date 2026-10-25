@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { forwardRef, useCallback, useImperativeHandle, useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Play,
@@ -16,7 +16,11 @@ interface MusicPlayerProps {
   autoPlayTrigger?: boolean;
 }
 
-export const MusicPlayer: React.FC<MusicPlayerProps> = ({ autoPlayTrigger }) => {
+export interface MusicPlayerHandle {
+  play: () => void;
+}
+
+export const MusicPlayer = forwardRef<MusicPlayerHandle, MusicPlayerProps>(({ autoPlayTrigger }, ref) => {
   const { music } = BIRTHDAY_CONTENT;
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
@@ -27,6 +31,21 @@ export const MusicPlayer: React.FC<MusicPlayerProps> = ({ autoPlayTrigger }) => 
   const [duration, setDuration] = useState(0);
   const [isExpanded, setIsExpanded] = useState(false);
   const [loop, setLoop] = useState(true);
+
+  const startPlayback = useCallback(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    audio.play()
+      .then(() => {
+        setIsPlaying(true);
+      })
+      .catch((err) => {
+        console.error('Audio play error:', err);
+      });
+  }, []);
+
+  useImperativeHandle(ref, () => ({ play: startPlayback }), [startPlayback]);
 
   // Initialize and attach events to audio element
   useEffect(() => {
@@ -65,18 +84,9 @@ export const MusicPlayer: React.FC<MusicPlayerProps> = ({ autoPlayTrigger }) => 
   // When autoPlayTrigger becomes true (user opened envelope), start playing
   useEffect(() => {
     if (autoPlayTrigger && audioRef.current && !isPlaying) {
-      const playPromise = audioRef.current.play();
-      if (playPromise !== undefined) {
-        playPromise
-          .then(() => {
-            setIsPlaying(true);
-          })
-          .catch((err) => {
-            console.warn('Autoplay prevented or audio loading:', err);
-          });
-      }
+      startPlayback();
     }
-  }, [autoPlayTrigger, isPlaying]);
+  }, [autoPlayTrigger, isPlaying, startPlayback]);
 
   const togglePlay = () => {
     const audio = audioRef.current;
@@ -86,14 +96,7 @@ export const MusicPlayer: React.FC<MusicPlayerProps> = ({ autoPlayTrigger }) => 
       audio.pause();
       setIsPlaying(false);
     } else {
-      audio
-        .play()
-        .then(() => {
-          setIsPlaying(true);
-        })
-        .catch((err) => {
-          console.error('Audio play error:', err);
-        });
+      startPlayback();
     }
   };
 
@@ -134,10 +137,7 @@ export const MusicPlayer: React.FC<MusicPlayerProps> = ({ autoPlayTrigger }) => 
 
   return (
     <>
-      {/* Hidden Native Audio Element with multiple format sources */}
-      <audio ref={audioRef} preload="auto">
-        <source src={music.audioSrc} type="audio/mpeg" />
-        <source src={music.audioSrcM4a} type="audio/mp4" />
+      <audio ref={audioRef} src={music.audioSrc} preload="auto">
         Your browser does not support the audio element.
       </audio>
 
@@ -295,4 +295,6 @@ export const MusicPlayer: React.FC<MusicPlayerProps> = ({ autoPlayTrigger }) => 
       </div>
     </>
   );
-};
+});
+
+MusicPlayer.displayName = 'MusicPlayer';

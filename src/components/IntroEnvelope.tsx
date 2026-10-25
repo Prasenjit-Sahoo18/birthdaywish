@@ -6,14 +6,16 @@ import { sounds } from '../utils/soundEffects';
 
 interface IntroEnvelopeProps {
   onOpen: () => void;
+  onStartMusic: () => void;
 }
 
-export const IntroEnvelope: React.FC<IntroEnvelopeProps> = ({ onOpen }) => {
+export const IntroEnvelope: React.FC<IntroEnvelopeProps> = ({ onOpen, onStartMusic }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isOpening, setIsOpening] = useState(false);
 
   const handleOpen = () => {
     if (isOpening) return;
+    onStartMusic();
     setIsOpening(true);
     sounds.playEnvelopeOpen();
 
